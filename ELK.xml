@@ -1,50 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
-<Name>ELK Stack</Name>
-<Beta>True</Beta>
-<!--Changes>
+  <Name>ELK Stack</Name>
+  <Beta>True</Beta>
+  <!--Changes>
 [center][img width='300px' src='http://i117.photobucket.com/albums/o43/sparklyballs_album/Fubar/sparklyballs2.gif'][/center]
 
 [center][font size=5]ELK Change Log[/font][/center]
 [font size=4][/font]
 </Changes-->
-<Category>Network:Management</Category>
-<Overview>ELK stack</Overview>
-<!--Support>http://lime-technology.com/forum/index.php?topic=37209</Support-->
-<Description>ELK stack specifically for monitoring PFsense (2.2 by default)[br]You must edit the 10-syslog.conf file found in the logstash-conf folder of your locally stored config.[br]Change to match your pfsense ip address taking care to keep the same format of slashes and dots, ie just replace the numbers.</Description>
-<Registry>https://hub.docker.com/r/willdurand/elk/</Registry>
-<Repository>willdurand/elk</Repository>
-<BindTime>true</BindTime>
-<Privileged>false</Privileged>
-<Networking>
-<Mode>bridge</Mode>
-<Publish>
-<Port>
-<HostPort>8080</HostPort>
-<ContainerPort>80</ContainerPort>
-<Protocol>tcp</Protocol>
-</Port>
-</Publish>
-</Networking>
-<Environment>
-<Variable>
-<Name></Name>
-<Value></Value>
-</Variable>
-</Environment>
-<Data>
-<Volume>
-<HostDir></HostDir>
-<ContainerDir>/data</ContainerDir>
-<Mode>rw</Mode>
-</Volume>
-<Volume>
-<HostDir></HostDir>
-<ContainerDir>/etc/logstash</ContainerDir>
-<Mode>rw</Mode>
-</Volume>
-</Data>
-<WebUI>http://[IP]:[PORT:8080]/#/dashboard/file/default.json</WebUI>
-<!--Banner>http://3.bp.blogspot.com/-kEJdMJOk-Ek/VLBP35BVfYI/AAAAAAACPBc/1NERucHXl_o/s1600/kibana_banner.png</Banner-->
-<Icon>http://i.imgur.com/Bkp9gC2.png</Icon>
+  <Category>Network:Management</Category>
+  <Overview>ELK stack</Overview>
+  <!--Support>http://lime-technology.com/forum/index.php?topic=37209</Support-->
+  <Description>ELK stack</Description>
+  <Registry>https://hub.docker.com/r/willdurand/elk/</Registry>
+  <Repository>willdurand/elk</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>9200</HostPort>
+        <ContainerPort>9200</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5140</HostPort>
+        <ContainerPort>5140</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name></Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/etc/logstash</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8080]/#/dashboard/file/default.json</WebUI>
+  <Banner>http://3.bp.blogspot.com/-kEJdMJOk-Ek/VLBP35BVfYI/AAAAAAACPBc/1NERucHXl_o/s1600/kibana_banner.png</Banner>
+  <Icon>http://2015.djangocon.eu/media/filer_public_thumbnails/filer_public/2015/04/20/elastic_logo_color.png__294x294_q95_crop.png</Icon>
 </Container>
